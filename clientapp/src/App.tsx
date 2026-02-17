@@ -1,4 +1,5 @@
 import { Flex } from '@mantine/core'
+import { AppShell } from '@mantine/core';
 import './App.css'
 import Header from './generalComponents/Header'
 import DashboardPage from './pages/dashboardPage/DashboardPage'
@@ -6,12 +7,10 @@ import DashboardPage from './pages/dashboardPage/DashboardPage'
 function App() {
 
   return (
-    <Flex
-    direction={"column"}
-    >
-      <Header />
-      <DashboardPage />
-    </Flex>
+    <AppShell header={{ height: 60 }}>
+      <AppShell.Header><Header/></AppShell.Header>
+      <AppShell.Main>Main</AppShell.Main>
+    </AppShell>
   )
 }
 
