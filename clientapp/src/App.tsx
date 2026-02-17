@@ -1,12 +1,17 @@
+import { Flex } from '@mantine/core'
 import './App.css'
-import DashboardPage from './pages/dashboardPage'
+import Header from './generalComponents/Header'
+import DashboardPage from './pages/dashboardPage/DashboardPage'
 
 function App() {
 
   return (
-    <>
+    <Flex
+    direction={"column"}
+    >
+      <Header />
       <DashboardPage />
-    </>
+    </Flex>
   )
 }
 
