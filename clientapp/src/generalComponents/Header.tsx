@@ -2,10 +2,12 @@ import { Title,Group,Button } from "@mantine/core";
 
 const Header = () => {
     return(
-        <Group w={"100%"} bg={"red"}>
+        <Group h={"100%"} bg={"red"} justify="space-between" p={"sm"}>
             <Title>Tickets App</Title>
-            <Button>Sign in</Button>
-            <Button>Sign up</Button>
+            <Group>
+                <Button>Sign in</Button>
+                <Button>Sign up</Button>
+            </Group>
         </Group>
     )
 }
