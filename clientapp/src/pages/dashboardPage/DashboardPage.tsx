@@ -1,4 +1,4 @@
-import { Group, Stack, Title } from "@mantine/core"
+import { Card, Group, Stack, Title } from "@mantine/core"
 import { DonutChart,BarChart } from '@mantine/charts';
 
 const DashboardPage = () => {
@@ -18,12 +18,30 @@ const DashboardPage = () => {
     ];
 
     return(
-        <Stack>
-        <Title>Dashboard Page</Title>
-        <Group>
-            <DonutChart data={data}/>
+        <Stack align="stretch" justify="center">
+        <Title ta={"center"}>Dashboard Page</Title>
+        
+        <Group justify="center">
+            <Card shadow="md" radius={"md"} bg={"pink"}>
+                <Title>Card 1</Title>
+            </Card>
+            <Card shadow="md" radius={"md"} bg={"blue"}>
+                <Title>Card 2</Title>
+            </Card>
+            <Card shadow="md" radius={"md"} bg={"yellow"}>
+                <Title>Card 3</Title>
+            </Card>
+            <Card shadow="md" radius={"md"} bg={"cyan"}>
+                <Title>Card 4</Title>
+            </Card>
+        </Group>
+
+        <Title ta={"center"}>Tickets Summary</Title>
+        <Group justify="center">
+            <DonutChart w={"25%"} data={data}/>
             <BarChart
             h={300}
+            w={"60%"}
             data={data2}
             dataKey="month"
             series={[
@@ -34,6 +52,7 @@ const DashboardPage = () => {
             tickLine="y"
             />
         </Group>
+        
         </Stack>
     )
 }
