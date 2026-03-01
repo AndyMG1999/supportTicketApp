@@ -37,11 +37,11 @@ const DashboardPage = () => {
         </Group>
 
         <Title ta={"center"}>Tickets Summary</Title>
-        <Group justify="center">
-            <DonutChart w={"25%"} data={data}/>
+        <Group justify="space-evenly">
+            <DonutChart w={"15%"} data={data}/>
             <BarChart
             h={300}
-            w={"60%"}
+            w={"40%"}
             data={data2}
             dataKey="month"
             series={[
