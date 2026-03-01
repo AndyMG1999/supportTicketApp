@@ -1,12 +1,12 @@
-import { Card, Group, Stack, Title } from "@mantine/core"
+import { Alert, Card, Group, Stack, Title } from "@mantine/core"
 import { DonutChart,BarChart } from '@mantine/charts';
 
 const DashboardPage = () => {
     const data = [
-    { name: 'USA', value: 400, color: 'indigo.6' },
-    { name: 'India', value: 300, color: 'yellow.6' },
-    { name: 'Japan', value: 100, color: 'teal.6' },
-    { name: 'Other', value: 200, color: 'gray.6' },
+    { name: 'Completed', value: 300, color: 'teal' },
+    { name: 'In-Progress', value: 150, color: 'yellow.6' },
+    { name: 'Overdue', value: 50, color: 'red' },
+    { name: 'Unassigned', value: 400, color: 'gray.6' },
     ];
     const data2 = [
     { month: 'January', Smartphones: 1200, Laptops: 900, Tablets: 200 },
@@ -19,8 +19,7 @@ const DashboardPage = () => {
 
     return(
         <Stack align="stretch" justify="center">
-        <Title ta={"center"}>Dashboard Page</Title>
-        
+
         <Group justify="center">
             <Card shadow="md" radius={"md"} bg={"pink"}>
                 <Title>Card 1</Title>
@@ -36,21 +35,33 @@ const DashboardPage = () => {
             </Card>
         </Group>
 
-        <Title ta={"center"}>Tickets Summary</Title>
+        <Title ta={"center"} order={1}>Tickets Summary</Title>
         <Group justify="space-evenly">
-            <DonutChart w={"15%"} data={data}/>
-            <BarChart
-            h={300}
-            w={"40%"}
-            data={data2}
-            dataKey="month"
-            series={[
-                { name: 'Smartphones', color: 'violet.6' },
-                { name: 'Laptops', color: 'blue.6' },
-                { name: 'Tablets', color: 'teal.6' },
-            ]}
-            tickLine="y"
-            />
+            <Card shadow="md" radius={"md"} w={"20%"}>
+                <DonutChart data={data} paddingAngle={10} tooltipDataSource="segment"/>
+            </Card>
+
+            <Stack w={"30%"} align="center">
+                <Title order={2}>Your Tickets</Title>
+                <Alert variant="light" title="2 Overdue" color="red" w={"100%"}/>
+                <Alert variant="light" title="1 High Priority" color="blue" w={"100%"}/>
+                <Alert variant="light" title="4 Low Priority" color="blue" w={"100%"}/>
+                <Alert variant="light" title="3 Unassigned" color="grey" w={"100%"}/>
+            </Stack>
+
+            <Card shadow="md" radius={"md"} w={"40%"}>
+                <BarChart
+                h={300}
+                data={data2}
+                dataKey="month"
+                series={[
+                    { name: 'Smartphones', color: 'violet.6' },
+                    { name: 'Laptops', color: 'blue.6' },
+                    { name: 'Tablets', color: 'teal.6' },
+                ]}
+                tickLine="y"
+                />
+            </Card>
         </Group>
         
         </Stack>
