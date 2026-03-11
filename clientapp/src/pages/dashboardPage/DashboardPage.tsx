@@ -18,7 +18,7 @@ const DashboardPage = () => {
     ];
 
     return(
-        <Stack align="stretch" justify="center">
+        <Stack align="stretch" justify="center" pt={"sm"}>
 
         <Group justify="center">
             <Card shadow="md" radius={"md"} bg={"pink"}>
